@@ -9,3 +9,9 @@
   text-decoration: none;
   color: #ffffff;
 }
+
+.a-tag:hover {
+  color: beige;
+}
+/* #5f9ea0
+ */

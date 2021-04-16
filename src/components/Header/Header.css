@@ -1,11 +1,12 @@
 .header {
     background-color: #d5b59c;
     padding: 0px 12px;
+    color: #ffffff;
 }
 
 .logo {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 3rem;
+    font-weight: 900;
 }
 
 .links {
@@ -16,5 +17,6 @@
 
 .link {
     margin: 0 8px;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-weight: 600;
 }

@@ -1,0 +1,10 @@
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    height: 80vh;
+}
+.greeting {
+    font-size: 4rem;
+}
