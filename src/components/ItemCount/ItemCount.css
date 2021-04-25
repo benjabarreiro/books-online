@@ -1,0 +1,47 @@
+.topContainer {
+    background-color: #d5b59c;
+    padding: 8px;
+}
+
+.bookName {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.quantityContainer {
+    display: flex;
+    padding: 2px 4px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+    background-color: #ffffff;
+    font-size: 1.8rem;
+}
+
+.quantity {
+    color: #808080;
+}
+
+.counter {
+    cursor: pointer;
+    color: #808080;
+}
+
+.bottomContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+
+.addButton {
+    width: 100%;
+    background-color: #d5b59c;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 900;
+    border-radius: 5px;
+    border: none;
+    padding: 4px 0px;
+    cursor: pointer;
+}

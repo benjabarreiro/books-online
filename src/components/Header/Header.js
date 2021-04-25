@@ -12,12 +12,12 @@ export const Header = () => {
             <p className="logo">{ecommerceName}</p>
             <nav className="navigation">
                 <ul className="links">
-                    <li className="link"><a className="a-tag" href="#">Log In</a></li>
-                    <li className="link"><a className="a-tag" href="#">Books/E-books</a></li>
-                    <li className="link"><a className="a-tag" href="#">Contact</a></li>
-                    <li className="link"><a className="a-tag" href="#">About us</a></li>
+                    <li className="link">Log In</li>
+                    <li className="link">Books/E-books</li>
+                    <li className="link">Contact</li>
+                    <li className="link">About us</li>
 
-                    <a className="a-tag" href="#"><FontAwesomeIcon className="link" icon={faShoppingCart} /></a>
+                    <FontAwesomeIcon className="link" icon={faShoppingCart} />
                 </ul>
             </nav>
         </header>
