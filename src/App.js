@@ -1,13 +1,13 @@
 import './App.css';
 import { Header } from './components/Header/Header';
-import { Products } from './components/Products/Products';
+import { BookListContainer } from './components/BookListContainer/BookListContainer';
 
 function App() {
-  const products = 'We are sorry, but currently we do not have any books to show you';
+  const products = 'Welcome to our store';
   return (
     <div className="App">
       <Header />
-      <Products products={products} />
+      <BookListContainer products={products} />
     </div>
   );
 }

@@ -1,3 +1,10 @@
+.itemCount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .topContainer {
     background-color: #d5b59c;
     padding: 8px;
