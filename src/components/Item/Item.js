@@ -1,7 +1,7 @@
 import React from 'react';
-import './Book.css';
+import './Item.css';
 
-const Book = (props) => {
+const Item = (props) => {
     return (
         <div className="book">
             <img className="book-img" src={props.book.pictureUrl} alt=""/>
@@ -17,4 +17,4 @@ const Book = (props) => {
     )
 }
 
-export default Book
+export default Item

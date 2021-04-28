@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './BookCount.css';
+import './ItemCount.css';
 
-export default function BookCount(props) {
+export default function ItemCount(props) {
 
     const [add, setAdd] = useState(props.initial);
 
@@ -34,7 +34,6 @@ export default function BookCount(props) {
     return (
         <div className="itemCount">
             <div className="topContainer">
-                <span className="bookName">{props.bookName}</span>
                 <div className="quantityContainer">
                     <span onClick={decrease} className="counter">-</span>
                     <span className="quantity">{props.stock !== 0 ? add : 'No hay stock'}</span>

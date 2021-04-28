@@ -1,10 +1,10 @@
 import React from 'react';
-import './Header.css';
+import './NavBar.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-export const Header = () => {
+export const NavBar = () => {
     const ecommerceName = 'Books Online';
 
     return (

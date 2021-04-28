@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import './BookList.css';
-import Book from '../Book/Book';
+import './ItemDetailContainer.css';
+import ItemDetail from '../ItemDetail/ItemDetail';
 
-const BookList = () => {
+export default function ItemDetailContainer() {
 
-    const [books, setBooks] = useState([]);
+    const [bookDetail, setBookDetail] = useState([]);
 
-    const booksList = [
+    const bookData = [
         {
             id: 1,
             title: 'The world of Ice and Fire',
@@ -47,17 +47,21 @@ const BookList = () => {
 
     new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(booksList)
+            resolve(bookData);
         }, 2000);
     })
     .then((book) => {
-        setBooks(book);
+        setBookDetail(book);
     })
-    return (
-        <div className="row bookList">
-            {books.map((book) => <Book book={book} />)}
-        </div>
-    )
-}
+    .catch((error) => {
+        return error;
+    });
 
-export default BookList
+    return (
+        <div>
+            {bookDetail.map((book) => {
+               return <ItemDetail book={book} />
+            })}
+        </div>
+    );
+}
