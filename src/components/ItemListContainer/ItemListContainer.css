@@ -1,11 +1,23 @@
 .products-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 .greeting {
-    font-size: 4rem;
+    padding: 1rem;
     text-align: center;
+}
+
+@media (min-width: 768px) {
+    .greeting {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .greeting {
+        font-size: 3.5rem;
+    }
 }

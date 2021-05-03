@@ -1,54 +1,25 @@
 .itemCount {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
-    flex-direction: column;
-}
-
-.topContainer {
-    background-color: #d5b59c;
-    padding: 8px;
-}
-
-.bookName {
-    color: #ffffff;
-    font-weight: 700;
+    background-color: #f5f5f5;
+    font-size: 1.5rem;
+    width: 70%;
+    border-radius: 5rem;
 }
 
 .quantityContainer {
     display: flex;
-    padding: 2px 4px;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    margin-top: 4px;
-    background-color: #ffffff;
-    font-size: 1.8rem;
-}
-
-.quantity {
-    color: #808080;
-}
-
-.counter {
-    cursor: pointer;
-    color: #808080;
-}
-
-.bottomContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px;
+    width: 40%;
+    font-size: 2rem;
+    border-right: 1px solid black;
 }
 
 .addButton {
-    width: 100%;
-    background-color: #d5b59c;
-    color: #ffffff;
-    font-size: 1.5rem;
-    font-weight: 900;
-    border-radius: 5px;
+    background-color: transparent;
     border: none;
-    padding: 4px 0px;
-    cursor: pointer;
+    width: 40%;
 }

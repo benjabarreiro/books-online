@@ -1,44 +1,103 @@
 .book {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     flex-direction: column;
-    width: 20%;
-    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .book-img {
-    height: 400px;
-    width: 100%;
-    object-fit: cover;
+    width: 60%;
 }
 
 .book-background {
-    border-left: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
-    border-right: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
 }
 
 .book-title-author {
+    font-size: 2rem;
+    font-weight: 700;
     text-align: center;
 }
 
 .description {
+    font-size: 1.7rem;
     text-align: center;
 }
 
 .book-bottom-container {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    width: 100%;
+    font-size: 1.5rem;
 }
 
-.book-price-info {
-    font-weight: 700;
-    padding-bottom: 4px;
-}
-
-.book-price-info:last-child {
+.info-link {
     cursor: pointer;
+    color: #000000;
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    .book {
+        flex-direction: row;
+        padding: 1rem 0;
+    }
+
+    .img-container {
+        width: 40%;
+        background-color: #f5f5f5;
+    }
+
+    .book-background {
+        width: 60%;
+    }
+}
+
+@media (min-width: 800px) {
+    .book-title-author {
+        font-size: 2.5rem;
+    }
+
+    .description {
+        font-size: 2.1rem;
+    }
+
+    .book-bottom-container {
+        font-size: 1.9rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .book-background {
+        padding: 1rem;
+    }
+
+    .book-title-author {
+        font-size: 2.9rem;
+    }
+
+    .description {
+        font-size: 2.5rem;
+    }
+
+    .book-bottom-container {
+        font-size: 2.3rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    .book {
+        max-width: 1000px;
+    }
 }

@@ -1,16 +1,22 @@
-import './App.css';
-import { NavBar } from './components/NavBar/NavBar';
-import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import "./App.css";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Detail from "./pages/Detail";
 
 function App() {
-  const products = 'Welcome to our store';
   return (
-    <div className="App">
-      <NavBar />
-      <ItemListContainer products={products} />
-      <ItemDetailContainer />
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/category/:categoryId" component={Home} />
+        <Route path="/detail/:id" component={Detail} />
+        <Route path="/login" />
+        <Route path="/register" />
+        <Route path="/cart/:id" />
+        <Route path="/contact" />
+        <Route path="/about-us" />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

@@ -1,54 +1,60 @@
 .item-detail {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    border: 1px solid black;
-}
-
-.second-container {
-    display: flex;
-    flex-direction: row;
-    width: 80%;
-    justify-content: space-evenly;
-    border: 1px solid black;
+    width: 90%;
+    padding: 1rem 0;
 }
 
 .detail-img-container {
     display: flex;
-    width: 20%;
     justify-content: center;
-    border: 1px solid black;
+    align-items: center;
 }
 
 .detail-img {
-    width: 100%;
+    width: 60%;
 }
 
 .detail-info-container {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 60%;
-    font-size: 2rem;
-    border: 1px solid black;
+    padding: 1rem 0;
 }
 
 .detail-description {
-    width: 80%;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 .price-Add {
     display: flex;
-    width: 20%;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
 }
 
 .price-detail {
-    font-weight: 800;
-    font-size: 2rem;
+    font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .item-detail {
+        max-width: 768px;
+        align-items: middle;
+    }
+
+    .detail-title {
+        font-size: 3rem;
+    }
+
+    .detail-description {
+        font-size: 2rem;
+    }
+
+    .price-detail {
+        font-size: 2rem;
+    }
 }

@@ -1,25 +1,47 @@
-import React from 'react';
-import './NavBar.css';
+import React from "react";
+import "./NavBar.css";
+import { Link } from "react-router-dom";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
 
 export const NavBar = () => {
-    const ecommerceName = 'Books Online';
+  const ecommerceName = "Books Online";
 
-    return (
-        <header className="row header">
-            <p className="logo">{ecommerceName}</p>
-            <nav className="navigation">
-                <ul className="links">
-                    <li className="link">Log In</li>
-                    <li className="link">Books/E-books</li>
-                    <li className="link">Contact</li>
-                    <li className="link">About us</li>
-
-                    <FontAwesomeIcon className="link" icon={faShoppingCart} />
-                </ul>
-            </nav>
-        </header>
-    );
-}
+  return (
+    <header className="header">
+      <p className="logo">
+        <Link id="logo" to="/">
+          {ecommerceName}
+        </Link>
+      </p>
+      <nav className="navigation">
+        <DropdownButton id="dropdown-item-button" title="Categories">
+          <Dropdown.Item id="dropdown-content" as="button">
+            <Link id="dropdown-link" to="/category/Fantasy">
+              Fantasy
+            </Link>
+          </Dropdown.Item>
+          <Dropdown.Item id="dropdown-content" as="button">
+            <Link id="dropdown-link" to="/category/Sci-Fi">
+              Sci-Fi
+            </Link>
+          </Dropdown.Item>
+        </DropdownButton>
+        <FontAwesomeIcon className="link" icon={faShoppingCart} />
+        <DropdownButton id="dropdown-item-button" title={<FontAwesomeIcon icon={faUser} />}>
+          <Dropdown.Item id="dropdown-content"><Link id="dropdown-link" to="/register">
+              Register
+            </Link></Dropdown.Item>
+          <Dropdown.Item id="dropdown-content"><Link id="dropdown-link" to="/login">
+              Log in
+            </Link></Dropdown.Item>
+        </DropdownButton>
+      </nav>
+    </header>
+  );
+};

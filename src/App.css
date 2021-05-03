@@ -1,17 +1,4 @@
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.a-tag {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.a-tag:hover {
-  color: beige;
-}
-/* #5f9ea0
- */
+* {
+    padding: 0;
+    margin: 0;
+  }

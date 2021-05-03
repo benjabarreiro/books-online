@@ -2,11 +2,30 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
 }
+
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+#dropdown-item-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+#dropdown-content {
+  font-size: 1.5rem;
+}
+
+#dropdown-link {
+  color: black;
+} 
+
+#root {
+  height: 100%;
+}
+
 body {
   margin: 0;
-  height: 100vh;
-  font-size: 1.6rem;
-  color: #000000;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -17,8 +36,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-#root {
-  height: 100%;
 }
