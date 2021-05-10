@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import BooksData from '../../BooksData';
 import "./ItemList.css";
 import Item from "../Item/Item";
-import { useEffect } from "react";
+//import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+
+
 const ItemList = () => {
-
   const {categoryId} = useParams();
-
+  
   const [books, setBooks] = useState([]);
 
   const getBooks = (books) => {

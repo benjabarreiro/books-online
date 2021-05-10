@@ -1,11 +1,23 @@
-import React from 'react'
-import { NavBar } from "../components/NavBar/NavBar";
+import React from "react";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 export default function Cart() {
-    return (
-        <div>
-            <NavBar />
-            <h1>Shopping Cart</h1>
-        </div>
-    )
+  const { cart, removeItem, clear } = useContext(CartContext);
+
+  return (
+    <div>
+      <h1>Shopping Cart</h1>
+      <button onClick={clear}>Vaciar Carrito</button>
+      {cart.map((element) => {
+        return (
+          <div key={element.item.id}>
+            <p>{element.item.title}</p>
+            <p>{element.quantity}</p>
+            <button onClick={() => removeItem(element.item.id)}>Eliminar</button>
+          </div>
+        );
+      })}
+    </div>
+  );
 }

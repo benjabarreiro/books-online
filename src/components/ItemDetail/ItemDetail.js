@@ -3,11 +3,14 @@ import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 const ItemDetail = (props) => {
-
   const [add, setAdd] = useState(1);
   const [finish, setFinish] = useState(0);
+
+  const { addItem } = useContext(CartContext);
 
   const increase = () => {
     if (props.book.stock === 0) {
@@ -31,10 +34,9 @@ const ItemDetail = (props) => {
 
   const onAdd = () => {
     if (props.book.stock !== 0) {
-      console.log(`${add} elementos agregados al carrito`);
+      addItem(props.book, add);
       setFinish(add);
     }
-
   };
 
   return (
@@ -53,9 +55,18 @@ const ItemDetail = (props) => {
             {props.book.price}
           </span>
           {finish === 0 ? (
-            <ItemCount addCart="Add to cart" stock={props.book.stock} onAdd={onAdd} increase={increase} decrease={decrease} add={add} />
+            <ItemCount
+              addCart="Add to cart"
+              stock={props.book.stock}
+              onAdd={onAdd}
+              increase={increase}
+              decrease={decrease}
+              add={add}
+            />
           ) : (
-            <Link to="/cart"><button>Finish my purchase</button></Link>
+            <Link to="/cart">
+              <button>Finish my purchase</button>
+            </Link>
           )}
         </div>
       </div>
