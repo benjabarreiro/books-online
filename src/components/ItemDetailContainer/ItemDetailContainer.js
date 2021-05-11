@@ -30,7 +30,7 @@ const ItemDetailContainer = () => {
       {bookDetail.length === 0 ? (
         <p>Loading Book Detail...</p>
       ) : (
-        bookDetail.map((book) => <ItemDetail key={book.id} price="Price: $" book={book} initial={1} />)
+        bookDetail.map((book) => <ItemDetail key={book.id} price="Price: $" book={book} />)
       )}
     </div>
   );

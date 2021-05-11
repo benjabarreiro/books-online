@@ -1,29 +1,27 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
-const ItemDetail = (props) => {
+const ItemDetail = ({ book }) => {
   const [add, setAdd] = useState(1);
   const [finish, setFinish] = useState(0);
 
   const { addItem } = useContext(CartContext);
 
   const increase = () => {
-    if (props.book.stock === 0) {
+    if (book.stock === 0) {
       console.log("No hay stock");
     } else {
-      if (add + 1 <= props.book.stock) {
+      if (add + 1 <= book.stock) {
         setAdd(add + 1);
       }
     }
   };
 
   const decrease = () => {
-    if (props.book.stock === 0) {
+    if (book.stock === 0) {
       console.log("No hay stock");
     } else {
       if (add - 1 >= 1) {
@@ -33,31 +31,29 @@ const ItemDetail = (props) => {
   };
 
   const onAdd = () => {
-    if (props.book.stock !== 0) {
-      addItem(props.book, add);
+    if (book.stock !== 0) {
+      addItem(book, add);
       setFinish(add);
     }
   };
 
   return (
-    <div key={props.book.id} className="item-detail">
-      <h1 className="detail-title">{props.book.title}</h1>
+    <div key={book.id} className="item-detail">
+      <h1 className="detail-title">{book.title}</h1>
       <div className="second-container">
         <span className="detail-img-container">
-          <img className="detail-img" src={props.book.pictureUrl} alt="" />
+          <img className="detail-img" src={book.pictureUrl} alt="" />
         </span>
         <div className="detail-info-container">
-          <span className="detail-description">{props.book.description}</span>
+          <span className="detail-description">{book.description}</span>
         </div>
         <div className="price-Add">
-          <span className="price-detail">
-            {props.price}
-            {props.book.price}
-          </span>
+          <span className="price-detail">Price: ${book.price}</span>
           {finish === 0 ? (
             <ItemCount
               addCart="Add to cart"
-              stock={props.book.stock}
+              initial={1}
+              stock={book.stock}
               onAdd={onAdd}
               increase={increase}
               decrease={decrease}

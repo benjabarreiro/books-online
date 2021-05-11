@@ -11,10 +11,10 @@ export default function Cart() {
       <button onClick={clear}>Vaciar Carrito</button>
       {cart.map((element) => {
         return (
-          <div key={element.item.id}>
-            <p>{element.item.title}</p>
+          <div key={element.id}>
+            <p>{element.title}</p>
             <p>{element.quantity}</p>
-            <button onClick={() => removeItem(element.item.id)}>Eliminar</button>
+            <button onClick={() => removeItem(element.id)}>Eliminar</button>
           </div>
         );
       })}

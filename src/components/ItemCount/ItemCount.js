@@ -1,22 +1,22 @@
 import React from "react";
 import "./ItemCount.css";
 
-export default function ItemCount(props) {
+export default function ItemCount({ decrease, stock, add, increase, onAdd, addCart }) {
   return (
     <div className="itemCount">
         <div className="quantityContainer">
-          <span onClick={props.decrease} className="counter">
+          <span onClick={decrease} className="counter">
             -
           </span>
           <span className="quantity">
-            {props.stock !== 0 ? props.add : "No hay stock"}
+            {stock !== 0 ? add : "No hay stock"}
           </span>
-          <span onClick={props.increase} className="counter">
+          <span onClick={increase} className="counter">
             +
           </span>
         </div>
-        <button onClick={props.onAdd} className="addButton">
-          {props.addCart}
+        <button onClick={onAdd} className="addButton">
+          {addCart}
         </button>
     </div>
   );

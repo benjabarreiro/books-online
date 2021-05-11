@@ -16,9 +16,9 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/category/:categoryId" component={Home} />
             <Route path="/detail/:id" component={Detail} />
+            <Route path="/cart" component={Cart} />
             <Route path="/login" />
             <Route path="/register" />
-            <Route path="/cart" component={Cart} />
             <Route path="/contact" />
             <Route path="/about-us" />
           </Switch>
