@@ -1,0 +1,16 @@
+import React, { useContext } from "react";
+import ItemCount from "../ItemCount/ItemCount";
+import { CartContext } from "../../context/CartContext";
+
+export default function CartItem({ quantity, title, id, price }) {
+  const { removeItem } = useContext(CartContext);
+  return (
+    <div>
+      <p>{title}</p>
+      <p>Quantity: {quantity}</p>
+      <p>Unit Price: ${price}</p>
+      <p>Selected Quantity Price: ${price * quantity}</p>
+      <button onClick={() => removeItem(id)}>Eliminar</button>
+    </div>
+  );
+}

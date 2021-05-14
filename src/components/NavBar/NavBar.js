@@ -10,9 +10,10 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import { Fragment } from "react";
 
 export const NavBar = () => {
-  const {itemCount} = useContext(CartContext);
+  const {itemCount, cart} = useContext(CartContext);
   const ecommerceName = "Books Online";
 
   return (
@@ -35,7 +36,10 @@ export const NavBar = () => {
             </Link>
           </Dropdown.Item>
         </DropdownButton>
-        <FontAwesomeIcon className="link" icon={faShoppingCart} /> ({itemCount()})
+        { cart.length >= 1 ? 
+        ( <Fragment>
+          <FontAwesomeIcon className="link" icon={faShoppingCart} /><span>({itemCount()})</span>
+        </Fragment> ) : ('')}
         <DropdownButton id="dropdown-item-button" title={<FontAwesomeIcon icon={faUser} />}>
           <Dropdown.Item id="dropdown-content"><Link id="dropdown-link" to="/register">
               Register
