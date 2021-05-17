@@ -24,10 +24,10 @@ export default function Cart() {
           return (
             <CartItem
               key={element.id}
-              title={element.title}
-              quantity={element.quantity}
-              price={element.price}
-              stock={element.stock}
+              title={element.data.title}
+              quantity={element.data.quantity}
+              price={element.data.price}
+              stock={element.data.stock}
               id={element.id}
             />
           );

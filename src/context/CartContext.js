@@ -9,11 +9,21 @@ export const CartProvider = ({ children }) => {
 
   const addItem = (item, quantity) => {
     if (isInCart(item.id)) {
-      setQty(item.quantity += quantity);
+      const updateCart = [...cart];
+
+      updateCart.forEach((element) => {
+        if(element.id === item.id) {
+          console.log(element);
+          element.data.quantity = element.data.quantity + quantity
+        }
+      })
+      setQty(updateCart);
     } else {
-    item.quantity = quantity;
+      console.log(item)
+    item.data.quantity = quantity;
     setCart([...cart, item]);
     }
+    console.log(item.id)
   };
   console.log(cart);
 
@@ -22,11 +32,12 @@ export const CartProvider = ({ children }) => {
   };
 
   const itemCount = () => {
-    return cart.reduce((acc, item) => (acc += item.quantity), 0);
+    return cart.reduce((acc, item) => (acc += item.data.quantity), 0);
   };
+  console.log(itemCount());
 
   const totalPrice = () => {
-    return cart.reduce((acc, item) => (acc += item.quantity * item.price), 0);
+    return cart.reduce((acc, item) => (acc += item.data.quantity * item.data.price), 0);
   }
 
   const removeItem = (id) => {

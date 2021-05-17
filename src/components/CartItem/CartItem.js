@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import ItemCount from "../ItemCount/ItemCount";
 import { CartContext } from "../../context/CartContext";
 
 export default function CartItem({ quantity, title, id, price }) {

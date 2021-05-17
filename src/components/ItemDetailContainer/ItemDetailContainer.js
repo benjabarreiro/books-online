@@ -1,36 +1,35 @@
 import React, { useState, useEffect } from "react";
-import BooksData from '../../BooksData';
 import "./ItemDetailContainer.css";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
+import { getFireStore } from "../../firebase";
 
 const ItemDetailContainer = () => {
-  const [bookDetail, setBookDetail] = useState([]);
+  const [item, setItem] = useState([]);
 
   const { id } = useParams();
 
-  const getDetail = (detail) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        return resolve(detail);
-      }, 2000);
-    })
-  }
-
   useEffect(() => {
-    let filterId = BooksData.filter((book) => book.id === id);
-    getDetail(filterId)
-    .then(() => {
-      setBookDetail(filterId);
-    });
-  }, [id]);
+    const db = getFireStore();
+    const itemCollection = db.collection('items');
+    const item = itemCollection.doc(id);
+    item
+      .get()
+      .then((querySnapshot) => {
+        const data = {
+          id: id,
+          data: querySnapshot.data()
+        };
+        setItem([data])
+      })
+  }, []);
 
   return (
     <div className="detail-container">
-      {bookDetail.length === 0 ? (
+      {item.length === 0 ? (
         <p>Loading Book Detail...</p>
       ) : (
-        bookDetail.map((book) => <ItemDetail key={book.id} price="Price: $" book={book} />)
+          <ItemDetail price="Price: $" book={item} />
       )}
     </div>
   );

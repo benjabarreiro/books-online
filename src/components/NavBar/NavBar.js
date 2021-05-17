@@ -16,6 +16,8 @@ export const NavBar = () => {
   const {itemCount, cart} = useContext(CartContext);
   const ecommerceName = "Books Online";
 
+  console.log(itemCount())
+
   return (
     <header className="header">
       <p className="logo">
@@ -26,12 +28,12 @@ export const NavBar = () => {
       <nav className="navigation">
         <DropdownButton id="dropdown-item-button" title="Categories">
           <Dropdown.Item id="dropdown-content" as="button">
-            <Link id="dropdown-link" to="/category/Fantasy">
+            <Link id="dropdown-link" to="/category/fantasy">
               Fantasy
             </Link>
           </Dropdown.Item>
           <Dropdown.Item id="dropdown-content" as="button">
-            <Link id="dropdown-link" to="/category/Sci-Fi">
+            <Link id="dropdown-link" to="/category/sci-fi">
               Sci-Fi
             </Link>
           </Dropdown.Item>
