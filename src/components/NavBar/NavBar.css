@@ -10,15 +10,29 @@
     color: #ffffff;
 }
 
-.logo {
+.logo-container {
     display: flex;
     align-items: center;
+    width: 50%;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: inline;
     font-size: 2rem;
     font-weight: 900;
     margin: 0;
 }
 
-#logo {
+.link-color {
+    color: #ffffff;
+}
+
+.link-color:hover {
     color: #ffffff;
 }
 

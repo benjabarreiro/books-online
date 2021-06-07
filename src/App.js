@@ -5,6 +5,7 @@ import Detail from "./pages/Detail";
 import Cart from "./pages/Cart";
 import { CartProvider } from "./context/CartContext";
 import { NavBar } from "./components/NavBar/NavBar";
+import Success from "./pages/Success";
 
 function App() {
   return (
@@ -17,10 +18,7 @@ function App() {
             <Route path="/category/:categoryId" component={Home} />
             <Route path="/detail/:id" component={Detail} />
             <Route path="/cart" component={Cart} />
-            <Route path="/login" />
-            <Route path="/register" />
-            <Route path="/contact" />
-            <Route path="/about-us" />
+            <Route path="/success" component={Success} />
           </Switch>
         </BrowserRouter>
       </CartProvider>

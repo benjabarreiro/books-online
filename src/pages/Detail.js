@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ItemDetailContainer from "../components/ItemDetailContainer/ItemDetailContainer";
 
 export default function Detail() {
 
   return (
-    <div className="App">
+    <Fragment>
       <ItemDetailContainer />
-    </div>
+    </Fragment>
   );
 }

@@ -1,14 +1,18 @@
-import React, { useState, useEffect, Fragment } from "react";
-import "./ItemList.css";
+import React, { useState, useEffect } from "react";
 import Item from "../Item/Item";
 import { useParams } from "react-router-dom";
 import { getFireStore } from "../../firebase";
+import InfoMessage from "../InfoMessage/InfoMessage";
+import '../../App.css';
 
 const ItemList = () => {
   const { categoryId } = useParams();
+  const [loading, setLoading] = useState(true);
   const [items, setItems] = useState([]);
   const [isEmpty, setIsEmpty] = useState(true);
-  const [categoryEmpty, setCategoryEmpty] = useState(false);
+  const [categoryEmpty, setCategoryEmpty] = useState(true);
+
+  //setTimeout(() => {}, 10000)
 
   useEffect(() => {
     const db = getFireStore();
@@ -16,12 +20,13 @@ const ItemList = () => {
     items
       .get()
       .then((querySnapshot) => {
+        setLoading(false);
         const itemFilter = () => {
           const data = querySnapshot.docs.map((doc) => ({
             id: doc.id,
             ...doc.data(),
           }));
-          let filterCategory = data.filter(
+          const filterCategory = data.filter(
             (item) => item.categoryId === categoryId
           );
           if (!categoryId) {
@@ -37,8 +42,9 @@ const ItemList = () => {
           }
         };
         if (querySnapshot.size === 0) {
-          setIsEmpty(false);
+          setIsEmpty(true);
         } else {
+          setIsEmpty(false);
           itemFilter(categoryId);
         }
       })
@@ -46,15 +52,27 @@ const ItemList = () => {
   }, [categoryId]);
 
   return (
-    <Fragment>
-      <div className="bookList">
-        {categoryEmpty === true ? (
-          <p>There are no products on this category, try another one</p>
-        ) : (
-          items.map((book) => <Item key={book.id} book={book} />)
-        )}
-      </div>
-    </Fragment>
+    <div className="bookList">
+      {loading === true ? (
+        <InfoMessage message="Loading books..." />
+      ) : categoryEmpty === true ? (
+        <InfoMessage message="There are no products on this category, try another one" />
+      ) : isEmpty === true ? (
+        <InfoMessage message="There was an error loading the books, try again later" />
+      ) : (
+        items.map((book) => (
+          <Item
+            key={book.id}
+            id={book.id}
+            pictureUrl={book.pictureUrl}
+            title={book.title}
+            author={book.author}
+            description={book.smallDescription}
+            price={book.price}
+          />
+        ))
+      )}
+    </div>
   );
 };
 

@@ -1,23 +1,30 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./ItemCount.css";
+import Button from "../Button/Button";
+import InfoMessage from "../InfoMessage/InfoMessage";
 
-export default function ItemCount({ decrease, stock, add, increase, onAdd, addCart }) {
+export default function ItemCount({
+  decrease,
+  stock,
+  add,
+  increase,
+  onAdd,
+  content,
+}) {
   return (
-    <div className="itemCount">
-        <div className="quantityContainer">
-          <span onClick={decrease} className="counter">
-            -
-          </span>
-          <span className="quantity">
-            {stock !== 0 ? add : "No hay stock"}
-          </span>
-          <span onClick={increase} className="counter">
-            +
-          </span>
+    <Fragment>
+      {stock !== 0 ? (
+        <div className="itemCount">
+          <div className="quantityContainer">
+            <span className="button-pointer" onClick={decrease}>-</span>
+            <span>{add}</span>
+            <span className="button-pointer" onClick={increase}>+</span>
+          </div>
+          <Button func={onAdd} content={content} />
         </div>
-        <button onClick={onAdd} className="addButton">
-          {addCart}
-        </button>
-    </div>
+      ) : (
+        <InfoMessage message="No hay stock" />
+      )}
+    </Fragment>
   );
 }

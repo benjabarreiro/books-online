@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./ItemDetailContainer.css";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getFireStore } from "../../firebase";
+import InfoMessage from "../InfoMessage/InfoMessage";
+import '../../App.css';
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState([]);
@@ -11,25 +12,37 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     const db = getFireStore();
-    const itemCollection = db.collection('items');
+    const itemCollection = db.collection("items");
     const item = itemCollection.doc(id);
-    item
-      .get()
-      .then((querySnapshot) => {
-        const data = {
-          id: id,
-          data: querySnapshot.data()
-        };
-        setItem([data])
-      })
-  }, []);
+    item.get().then((querySnapshot) => {
+      const data = {
+        id: id,
+        ...querySnapshot.data(),
+      };
+      setItem([data]);
+    });
+  }, [id]);
 
   return (
-    <div className="detail-container">
+    <div className="main-container">
+      <Link className="link" to={'/cart'}>
+        <h3>Go to Shopping Cart</h3>
+      </Link>
       {item.length === 0 ? (
-        <p>Loading Book Detail...</p>
+        <InfoMessage message="Loading Book Detail..." />
+      ) : !item[0].title ? (
+        <InfoMessage message="This product doesn't exist" />
       ) : (
-          <ItemDetail price="Price: $" book={item} />
+        <ItemDetail
+          stock={item[0].stock}
+          id={item[0].id}
+          title={item[0].title}
+          author={item[0].author}
+          pictureUrl={item[0].pictureUrl}
+          description={item[0].description}
+          price={item[0].price}
+          book={item[0]}
+        />
       )}
     </div>
   );
