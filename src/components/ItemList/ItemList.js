@@ -42,6 +42,7 @@ const ItemList = () => {
         };
         if (querySnapshot.size === 0) {
           setIsEmpty(true);
+          setCategoryEmpty(false);
         } else {
           setIsEmpty(false);
           itemFilter(categoryId);
