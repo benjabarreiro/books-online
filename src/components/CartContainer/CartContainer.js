@@ -5,7 +5,6 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import { getFireStore } from "../../firebase";
 import CartItemsList from "../CartItemsList/CartItemsList";
-import "../../App.css";
 import "./CartContainer.css";
 import FormInput from '../FormInput/FormInput';
 import Button from "../Button/Button";

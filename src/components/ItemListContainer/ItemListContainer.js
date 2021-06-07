@@ -2,7 +2,6 @@ import React from "react";
 import "./ItemListContainer.css";
 import ItemList from "../ItemList/ItemList";
 import { Link } from "react-router-dom";
-import '../../App.css';
 
 
 export const ItemListContainer = ({ products }) => {

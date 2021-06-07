@@ -3,7 +3,6 @@ import { CartContext } from "../../context/CartContext";
 import CartItem from '../CartItem/CartItem';
 import { Link } from "react-router-dom";
 import InfoMessage from '../InfoMessage/InfoMessage';
-import '../../App.css';
 
 export default function CartItemsList() {
   const { cart } = useContext(CartContext);

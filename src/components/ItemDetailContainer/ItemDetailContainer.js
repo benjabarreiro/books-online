@@ -3,7 +3,6 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams, Link } from "react-router-dom";
 import { getFireStore } from "../../firebase";
 import InfoMessage from "../InfoMessage/InfoMessage";
-import '../../App.css';
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState([]);

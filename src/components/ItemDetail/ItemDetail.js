@@ -4,7 +4,6 @@ import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import ItemStructure from "../ItemStructure/ItemStructure";
-import '../../App.css';
 
 const ItemDetail = ({
   stock,

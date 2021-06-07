@@ -3,7 +3,6 @@ import Item from "../Item/Item";
 import { useParams } from "react-router-dom";
 import { getFireStore } from "../../firebase";
 import InfoMessage from "../InfoMessage/InfoMessage";
-import '../../App.css';
 
 const ItemList = () => {
   const { categoryId } = useParams();
