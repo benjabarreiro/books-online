@@ -14,7 +14,7 @@
 
 ##### react: es el framework en donde se contruyó este proyecto. Link: https://github.com/facebook/react
 
-##### react-bootstrap: se loo agregó para incluir en el navbar dos dropdowns con opciones para seleccionar. Link: https://github.com/react-bootstrap/react-bootstrap
+##### bootstrap y react-bootstrap: se los agregó para incluir en el navbar dos dropdowns con opciones para seleccionar. Link: https://github.com/react-bootstrap/react-bootstrap
 
 ##### react-router-dom: se lo incluyó en el proyecto para tener un sistema de rutas y así navegar por las distintas páginas. Link: https://github.com/ReactTraining/react-router
 
