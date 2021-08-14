@@ -1,9 +1,8 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-require('dotenv');
 const app = firebase.initializeApp({
-    apiKey: process.env.API_KEY,
+    apiKey: "AIzaSyCxqpR8RDnzKXDZTm3u9zIY3cFMYxoE4xM",
     authDomain: "books-online-ch.firebaseapp.com",
     projectId: "books-online-ch",
     storageBucket: "books-online-ch.appspot.com",
